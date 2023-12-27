@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    checkout([$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/nrtgyk/cloudproject.git']]])
+                }
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    echo 'Installing dependencies...'
+                    sh 'npm install'
+                    sh 'nmp start'
+                }
+            }
+        }
+
+        
+    }
+
+    post {
+        success {
+            // Başarılı bir şekilde tamamlandığında yapılacak işlemler
+            echo 'Pipeline başariyla tamamlandi!'
+        }
+
+        failure {
+            // Hata durumunda yapılacak işlemler
+            echo 'Pipeline kontrol edilmeli.'
+        }
+
+        always {
+            // Her durumda yapılacak işlemler
+            echo 'Pipeline tamamlandi.'
+        }
+    }
+
+    // Jenkins pipeline sona erdiğinde HTTP sunucusunu kapatma adımı
+
+}
