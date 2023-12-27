@@ -10,6 +10,7 @@ app.use(
     extended: true,
   })
 );
+
 // Enable CORS for all routes
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Allow requests from any origin (insecure, use a specific origin in production)
