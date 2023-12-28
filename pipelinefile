@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    checkout([$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/nrtgyk/cloudproject.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/eyupoglugozdenur/node-user-management.git']]])
                 }
             }
         }
