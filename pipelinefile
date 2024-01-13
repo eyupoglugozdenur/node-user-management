@@ -1,4 +1,5 @@
 pipeline {
+    
     agent any
 
     stages {
@@ -23,6 +24,7 @@ pipeline {
     }
 
     post {
+
         success {
             // Başarılı bir şekilde tamamlandığında yapılacak işlemler
             echo 'Pipeline başariyla tamamlandi!'
@@ -38,6 +40,7 @@ pipeline {
             echo 'Pipeline tamamlandi.'
         }
     }
+
 
     // Jenkins pipeline sona erdiğinde HTTP sunucusunu kapatma adımı
 
